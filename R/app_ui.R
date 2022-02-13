@@ -10,7 +10,21 @@ app_ui <- function(request) {
     golem_add_external_resources(),
     # Your application UI logic 
     fluidPage(
-      h1("ShinyTemp1")
+      titlePanel("Shiny template 1"),
+      sidebarLayout(
+       sidebarPanel(
+         mod_sidebar_ui("sidebar_ui_1"),
+         width = 2
+       ),
+       mainPanel(
+         tabsetPanel(
+           id = "tabset",
+           tabPanel("Plots"),
+           tabPanel("Analysis")
+         ),
+         width = 10
+       )
+      )
     )
   )
 }

@@ -7,7 +7,11 @@ Description: Shiny template with simulation, tables and plot. Primarily
 License: MIT + file LICENSE
 Imports: 
     config (>= 0.3.1),
+    dplyr,
+    ggdag,
+    ggplot2,
     golem (>= 0.3.1),
+    rlang,
     shiny (>= 1.7.1)
 Encoding: UTF-8
 LazyData: true
