@@ -10,11 +10,12 @@ things are different. There are documented in the setup section below.
 A shiny template used mainly as an example on how to use modules and submodules
 together.
 
-The pattern is actually typical of my usage of `shiny`
+The pattern is actually typical of my usage of `shiny` and should simplify
+my work.
 * Run a simulation of or load data.
 * Do some analysis.
-* Create tables with `gt`.
-* Create plots with `plotly`.
+* Create and present tables.
+* Create and present plots.
 
 ## Create the package
 
