@@ -20,11 +20,11 @@ usethis::use_package( "testthis" , type = "suggests")
 ## Add modules ----
 ## Create a module infrastructure in R/
 golem::add_module( name = "dag" ) # Name of the module
-golem::add_module( name = "name_of_module2" ) # Name of the module
+golem::add_module( name = "tbl" ) # Name of the module
 
 ## Add helper functions ----
 ## Creates fct_* and utils_*
-golem::add_fct( "create", module = "mod_dag" ) 
+golem::add_fct( "", module = "tbl" ) 
 golem::add_utils( "helpers" )
 
 ## External resources
