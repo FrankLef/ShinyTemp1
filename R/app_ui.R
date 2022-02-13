@@ -20,7 +20,11 @@ app_ui <- function(request) {
          tabsetPanel(
            id = "tabset",
            tabPanel("Plots"),
-           tabPanel("Analysis")
+           tabPanel("Analysis",
+                    fluidPage(
+                      column(12, 
+                             mod_dag_ui("dag_ui_1"))
+                    ))
          ),
          width = 10
        )

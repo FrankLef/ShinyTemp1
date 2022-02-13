@@ -10,7 +10,7 @@
 mod_dag_ui <- function(id){
   ns <- NS(id)
   tagList(
-    
+    plotOutput(ns("dag"))
   )
 }
     
@@ -20,7 +20,9 @@ mod_dag_ui <- function(id){
 mod_dag_server <- function(id){
   moduleServer( id, function(input, output, session){
     ns <- session$ns
- 
+    output$dag <- renderPlot({
+      create_dag()
+    })
   })
 }
     

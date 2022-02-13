@@ -4,7 +4,7 @@
 \alias{create_dag}
 \title{Create a plain example of DAG for shiny project}
 \usage{
-create_dag(treatment, history, colrs)
+create_dag(treatment = 0, history = 0, colrs = list("black", "white"))
 }
 \arguments{
 \item{treatment}{Coefficient of treatment variable.}

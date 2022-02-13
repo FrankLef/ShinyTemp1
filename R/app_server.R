@@ -7,4 +7,5 @@
 app_server <- function( input, output, session ) {
   # Your application server logic 
   mod_sidebar_server("sidebar_ui_1")
+  mod_dag_server("dag_ui_1")
 }

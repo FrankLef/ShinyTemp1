@@ -8,7 +8,8 @@
 #'
 #' @return ggplot of DAG
 #' @export
-create_dag <- function(treatment, history, colrs) {
+create_dag <- function(treatment = 0, history = 0, 
+                       colrs = list("black", "white")) {
   dag <- dagify(
     Y ~ `T` + H,
     `T` ~ H,
