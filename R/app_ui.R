@@ -22,9 +22,10 @@ app_ui <- function(request) {
            tabPanel("Plots"),
            tabPanel("Analysis",
                     fluidPage(
-                      column(12, 
-                             mod_dag_ui("dag_ui_1"))
-                    ))
+                      column(6, mod_dag_ui("dag_ui_1")),
+                      column(6, mod_tbl_ui("tbl_ui_1"))
+                      )
+                    )
          ),
          width = 10
        )

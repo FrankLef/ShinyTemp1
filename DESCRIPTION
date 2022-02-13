@@ -11,6 +11,7 @@ Imports:
     ggdag,
     ggplot2,
     golem (>= 0.3.1),
+    gt,
     rlang,
     shiny (>= 1.7.1)
 Encoding: UTF-8

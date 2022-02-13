@@ -15,7 +15,7 @@
 
 ## Dependencies ----
 ## Add one line by package you want to add as dependency
-usethis::use_package( "testthis" , type = "suggests")
+usethis::use_package( "gt" , type = "imports")
 
 ## Add modules ----
 ## Create a module infrastructure in R/
@@ -39,7 +39,7 @@ usethis::use_data_raw( name = "my_dataset", open = FALSE )
 
 ## Tests ----
 ## Add one line by test you want to create
-usethis::use_test( "fct_sim" )
+usethis::use_test( "mod_fct_tbl" )
 
 # Documentation
 

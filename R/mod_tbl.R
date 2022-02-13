@@ -10,7 +10,7 @@
 mod_tbl_ui <- function(id){
   ns <- NS(id)
   tagList(
- 
+    gt::gt_output(outputId = ns("tbl"))
   )
 }
     
@@ -20,7 +20,10 @@ mod_tbl_ui <- function(id){
 mod_tbl_server <- function(id){
   moduleServer( id, function(input, output, session){
     ns <- session$ns
- 
+    output$tbl <- gt::render_gt({
+      df <- sim_dag()
+      create_tbl(df)
+    })
   })
 }
     
