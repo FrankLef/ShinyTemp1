@@ -1,7 +1,11 @@
+inst/doc
+docs
+inst/rstudio/.DS_Store
+**/.DS_Store
+*.DS_Store
 .Rproj.user
 .Rhistory
 .RData
-.Ruserdata
-.Rdata
-.httr-oauth
-.DS_Store
+doc
+Meta
+revdep/
