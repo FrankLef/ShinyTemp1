@@ -1,4 +1,5 @@
 # ShinyTemp1
+
 Shiny template 1
 
 ## Description
@@ -15,13 +16,16 @@ The pattern is actually typical of my usage of `shiny`
 3. Present the results in a table with `gt`
 4. Present the results in a plot with `plotly`
 
-## Setup
-
-Some things are not 
+## Create the package
 
 1. Create repo on github *only with the readme file*
 2. Create git with RStudio then create with golem and accept override
+
+## Setup
+
+The steps are required for the 
+
 3. Update `\dev\01_start.R` and run it
 4. Run `usethis::use_package_doc()` to create a dummy .R file prompting
-`roxygen`. See the help.
-5. Run `usethis::use_test( "app" )` to set up the testing funcitonalities
+`roxygen`. See the help for more details.
+5. Run `usethis::use_test( "app" )` to set up the testing tools.
