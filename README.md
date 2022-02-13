@@ -1,2 +1,2 @@
 # ShinyTemp1
-Shiny tempate 1 TEST
+Shiny template 1
