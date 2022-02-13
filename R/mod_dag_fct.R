@@ -1,3 +1,24 @@
+#' Create a plain example of DAG for shiny project
+#'
+#' @param treatment Coefficient of treatment variable.
+#' @param history Coefficient of history variable.
+#' @param colrs List of colors.
+#' 
+#' @importFrom ggdag dagify
+#'
+#' @return ggplot of DAG
+#' @export
+create_dag <- function(treatment, history, colrs) {
+  dag <- dagify(
+    Y ~ `T` + H,
+    `T` ~ H,
+    exposure = "T",
+    latent = "H",
+    outcome = "Y")
+  ggp_dag(dag)
+}
+
+
 #' Plot a DAG with ggplot and node names with subscripts
 #' 
 #' Plot a DAG with ggplot and node names with subscripts.
@@ -34,4 +55,4 @@ ggp_dag <- function(dag, layout = "sugiyama") {
                              element_rect(fill=bg_colr, color=bg_colr)) +
     theme(legend.position = "bottom",
           legend.title = element_blank())
-  }
+}
