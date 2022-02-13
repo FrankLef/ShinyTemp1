@@ -27,7 +27,6 @@ The steps are required for the
 
 1. Update `\dev\01_start.R` and run it
 2. Run `renv::init()` to initialize a new project-local environment.
-see [renv](https://rstudio.github.io/renv/articles/renv.html) for details.
 3. Run `usethis::use_package_doc()` to create a dummy .R file prompting
 `roxygen`. See the help for more details.
 4. Run `usethis::use_test( "app" )` to set up the testing tools.
