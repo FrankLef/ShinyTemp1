@@ -46,13 +46,14 @@ sim_binom <- function(n = 1000, probH = 0.4, seed = 222) {
 #' @examples
 #' sim_norm()
 sim_norm <- function(n = 1000, meanH = 0.4, sdH = 0.1, seed = 222) {
+  stopifnot(sdH > 0)
   set.seed(seed)
   # generate the confounder first
   H <- rnorm(n, mean = meanH, sd = sdH)
   meanA <- H * 0.8 + (1 - H) * 0.3
-  `T` <- rnorm(n, mean = meanA, sd = 0.2 * meanA)
+  `T` <- rnorm(n, mean = meanA, sd = abs(0.2 * meanA))
   meanY <- `T` * (H * 0.5 + (1 - H) * 0.7) + (1 - `T`) * (H * 0.3 + (1 - H) * 0.5)
-  Y <- rnorm(n, mean = meanY, sd = 0.2 * meanY)
+  Y <- rnorm(n, mean = meanY, sd = abs(0.2 * meanY))
   out <- data.frame(cbind(H, `T`, Y))
   out %>%
     group_by(`T`, H) %>%
