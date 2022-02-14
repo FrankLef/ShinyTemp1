@@ -1,0 +1,49 @@
+---
+title: "ShinyTemp1"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{ShinyTemp1}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r include=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup, include=FALSE}
+# knitr::opts_chunk$set(
+# 	message = FALSE,
+# 	warning = FALSE,
+# 	include = FALSE
+# )
+library(dplyr)
+library(ggplot2, quietly = TRUE)
+library(plotly, quietly = TRUE)
+library(ShinyTemp1)
+```
+
+## Create plotly
+
+```{r echo=TRUE}
+df <- sim_norm()
+df
+```
+
+```{r}
+ggp <- df %>%
+  filter(var != "(Intercept)") %>%
+  ggplot(aes(x = Estimate, y = var, xmin = Estimate - Std..Error,
+               xmax = Estimate + Std..Error, color = model)) +
+  geom_pointrange(position = position_dodge(width = 0.5),
+                  fatten = 8, size = 2) +
+  theme_minimal() +
+  theme(legend.position = "bottom",
+        legend.title = element_blank()) +
+  labs(x = NULL, y = NULL)
+ply <- ggplotly(ggp)
+ply
+```

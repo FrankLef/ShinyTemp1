@@ -15,16 +15,16 @@
 
 ## Dependencies ----
 ## Add one line by package you want to add as dependency
-usethis::use_package( "gt" , type = "imports")
+usethis::use_package( "plotly" , type = "imports")
 
 ## Add modules ----
 ## Create a module infrastructure in R/
-golem::add_module( name = "dag" ) # Name of the module
-golem::add_module( name = "tbl" ) # Name of the module
+golem::add_module( name = "plot" ) # Name of the module
+golem::add_module( name = "lm" ) # Name of the module
 
 ## Add helper functions ----
 ## Creates fct_* and utils_*
-golem::add_fct( "", module = "tbl" ) 
+golem::add_fct( "", module = "ply" ) 
 golem::add_utils( "helpers" )
 
 ## External resources
@@ -39,7 +39,7 @@ usethis::use_data_raw( name = "my_dataset", open = FALSE )
 
 ## Tests ----
 ## Add one line by test you want to create
-usethis::use_test( "mod_fct_tbl" )
+usethis::use_test( "mod_ply_fct" )
 
 # Documentation
 

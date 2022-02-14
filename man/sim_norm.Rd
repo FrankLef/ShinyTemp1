@@ -4,7 +4,7 @@
 \alias{sim_norm}
 \title{Simulate data having spurious associations using \code{rnorm}}
 \usage{
-sim_norm(n = 1000, meanH = 0.4, sdH = 0.1, seed = 222)
+sim_norm(n = 1000, meanH = 0.4, sdH = 0.25 * meanH, seed = 222)
 }
 \arguments{
 \item{n}{Sample size}
@@ -16,7 +16,8 @@ sim_norm(n = 1000, meanH = 0.4, sdH = 0.1, seed = 222)
 \item{seed}{Seed. Default is 222}
 }
 \value{
-Data.frame with probabilities
+List with coefficients details of model \code{Y ~ `T`} and
+model \code{Y ~ `T` + H}
 }
 \description{
 Simulate data having spurious associations using \code{rnorm}

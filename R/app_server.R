@@ -9,4 +9,5 @@ app_server <- function( input, output, session ) {
   mod_sidebar_server("sidebar_ui_1")
   mod_dag_server("dag_ui_1")
   mod_tbl_server("tbl_ui_1")
+  mod_plot_server("plot_ui_1")
 }

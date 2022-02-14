@@ -8,11 +8,12 @@
 #' @importFrom rlang .data
 #'
 #' @return Data.frame with probabilities
-#' @export
 #'
 #' @examples
 #' sim_binom()
+#' @export
 sim_binom <- function(n = 1000, probH = 0.4, seed = 222) {
+  stopifnot(probH > 0, probH < 1)
   set.seed(seed)
   # generate the confounder first
   H <- rbinom(n, size = 1, prob = probH)
@@ -37,25 +38,29 @@ sim_binom <- function(n = 1000, probH = 0.4, seed = 222) {
 #' @param sdH sd of latent variable \code{H}
 #' @param seed Seed. Default is 222
 #' 
-#' @importFrom stats rnorm sd
+#' @importFrom stats rnorm sd coef lm
 #' @importFrom rlang .data
 #'
-#' @return Data.frame with probabilities
-#' @export
+#' @return List with coefficients details of model \code{Y ~ `T`} and
+#' model \code{Y ~ `T` + H}
 #'
 #' @examples
 #' sim_norm()
-sim_norm <- function(n = 1000, meanH = 0.4, sdH = 0.1, seed = 222) {
-  stopifnot(sdH > 0)
+#' @export
+sim_norm <- function(n = 1000, meanH = 0.4, sdH = 0.25 * meanH, seed = 222) {
+  stopifnot(meanH > 0, meanH < 1, sdH > 0)
   set.seed(seed)
   # generate the confounder first
   H <- rnorm(n, mean = meanH, sd = sdH)
-  meanA <- H * 0.8 + (1 - H) * 0.3
-  `T` <- rnorm(n, mean = meanA, sd = abs(0.2 * meanA))
-  meanY <- `T` * (H * 0.5 + (1 - H) * 0.7) + (1 - `T`) * (H * 0.3 + (1 - H) * 0.5)
-  Y <- rnorm(n, mean = meanY, sd = abs(0.2 * meanY))
+  meanT <- 0.25 * H
+  `T` <- rnorm(n, mean = meanT, sd = abs(0.25 * meanT))
+  meanY <- 0.25 * H + 0.5 * `T`
+  a <- rnorm(n, mean = 0, sd = sdH)
+  Y <-  a + rnorm(n, mean = meanY, sd = abs(0.25 * meanY))
   out <- data.frame(cbind(H, `T`, Y))
-  out %>%
-    group_by(`T`, H) %>%
-    summarize(nb = n(), avg = mean(Y), sd = sd(Y))
+  lmod0 <- coef(summary(lm(Y ~ a + `T`)))
+  lmod0 <- data.frame(model = "lmod0", var = row.names(lmod0), lmod0)
+  lmod1 <- coef(summary(lm(Y ~ a + `T` + H)))
+  lmod1 <- data.frame(model = "lmod1", var = row.names(lmod1), lmod1)
+  rbind(lmod0, lmod1)
 }

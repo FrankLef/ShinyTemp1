@@ -9,3 +9,5 @@ inst/rstudio/.DS_Store
 doc
 Meta
 revdep/
+/doc/
+/Meta/
