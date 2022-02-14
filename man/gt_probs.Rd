@@ -7,7 +7,7 @@
 gt_probs(df, digits = 3, title, subtitle)
 }
 \arguments{
-\item{df}{Datafframe}
+\item{df}{Dataframe}
 
 \item{digits}{Integer, number of digits to the right of decimal}
 

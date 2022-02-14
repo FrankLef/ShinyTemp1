@@ -26,7 +26,7 @@ app_ui <- function(request) {
                       column(6, mod_tbl_ui("tbl_ui_1"))
                       )
                     )
-         ),
+           ),
          width = 10
        )
       )

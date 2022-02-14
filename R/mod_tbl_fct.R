@@ -19,7 +19,7 @@ create_tbl <-  function(data, title = "Title", subtitle = "Subtitle") {
 #' Create table of probabilities with \code{gt} package. The last column
 #' repesents the probabilitis.
 #'
-#' @param df Datafframe
+#' @param df Dataframe
 #' @param digits Integer, number of digits to the right of decimal
 #' @param title Title of the table
 #' @param subtitle Subtitle of the table

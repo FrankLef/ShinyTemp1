@@ -1,5 +1,5 @@
-test_that("sim_dag", {
-  out <- sim_dag()
+test_that("sim_binom", {
+  out <- sim_binom()
   
   target <- data.frame(
     `T` = as.integer(c(0, 0, 0, 0, 1, 1, 1, 1)),

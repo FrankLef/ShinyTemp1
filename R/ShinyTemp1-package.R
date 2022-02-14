@@ -8,7 +8,7 @@
 #'
 #' @docType package
 #' @name ShinyTemp1
-#' @importFrom dplyr %>% mutate count group_by ungroup
+#' @importFrom dplyr %>% mutate count group_by ungroup n summarize
 #' @importFrom ggplot2 aes scale_color_manual theme element_rect element_blank
 #' element_text
 

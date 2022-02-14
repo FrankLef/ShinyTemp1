@@ -21,7 +21,7 @@ mod_tbl_server <- function(id){
   moduleServer( id, function(input, output, session){
     ns <- session$ns
     output$tbl <- gt::render_gt({
-      df <- sim_dag()
+      df <- sim_binom()
       create_tbl(df)
     })
   })
