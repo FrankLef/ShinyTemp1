@@ -20,9 +20,10 @@ mod_dtbl_ui <- function(id){
 mod_dtbl_server <- function(id){
   moduleServer( id, function(input, output, session){
     ns <- session$ns
-    df <- sim_norm()
-    df <- mod_tbl_fnc(df)
-    output$dtbl <- renderDataTable(df)
+    output$dtbl <- renderDataTable({
+      df <- sim_norm()
+      mod_tbl_fnc(df)
+    })
   })
 }
     
