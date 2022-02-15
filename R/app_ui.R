@@ -19,12 +19,13 @@ app_ui <- function(request) {
        mainPanel(
          tabsetPanel(
            id = "tabset",
-           tabPanel("Plots",
+           tabPanel("Normal",
                     fluidPage(
-                      column(12, mod_plot_ui("plot_ui_1"))
+                      column(6, mod_plot_ui("plot_ui_1")),
+                      column(6, mod_dtbl_ui("dtbl_ui_1"))
                       )
                     ),
-           tabPanel("Analysis",
+           tabPanel("Binomial",
                     fluidPage(
                       column(6, mod_dag_ui("dag_ui_1")),
                       column(6, mod_tbl_ui("tbl_ui_1"))
