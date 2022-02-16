@@ -12,10 +12,7 @@ app_ui <- function(request) {
     fluidPage(
       titlePanel("Shiny template 1"),
       sidebarLayout(
-       sidebarPanel(
-         mod_sidebar_ui("sidebar_ui_1"),
-         width = 2
-       ),
+       mod_sidebar_ui("sidebar_ui_1"),
        mainPanel(
          tabsetPanel(
            id = "tabset",

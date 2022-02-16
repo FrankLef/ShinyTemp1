@@ -13,29 +13,47 @@ mod_sidebar_ui <- function(id){
                         "Multicollinearity" = "Multicollinear", 
                         "Post-treatment bias" = "PostTreatment", 
                         "Collider bias" = "Collider")
-  tagList(
-    selectInput("scenario", "Scenario", choices = the_scenarios,
+  subtitle_msg <- paste0("Simulate a spurious association in 2 ways,", "<br>", 
+                         "with binomial and normal distributions.")
+  sidebarPanel(
+    selectInput(ns("scenario"), "Scenario", choices = the_scenarios,
                 selected = the_scenarios[1]),
-    numericInput("N", "Sample Size", value = 100, min = 1, max = 1000),
-    sliderInput("treatment", "Treatment", value = 1, 
-                min = 1, max = 10, step = 1),
-    sliderInput("history", "History", value = 1, 
-                min = 1, max = 10, step = 1),
-    actionButton("sim", "Simulate", width = "100%",
+    textInput(ns("title"), "Title", value = "Spurious Association"),
+    textAreaInput(ns("subtitle"), "Subtitle", value = subtitle_msg),
+    br(),
+    numericInput(ns("N"), "Sample Size", value = 1000, min = 100, max = 10000,
+                 step = 100),
+    sliderInput(ns("probH"), "History's Probability", value = 0.4, 
+                min = 0, max = 1, step = 0.05),
+    sliderInput(ns("meanH"), "History's Mean", value = 0.4, 
+                min = 0, max = 1, step = 0.05),
+    br(),
+    actionButton(ns("simulate"), "Simulate", width = "100%",
                  icon = icon(name = "play", lib = "font-awesome")),
     br(),
-    actionButton("reset", "Reset", width = "100%",
-                 icon = icon(name = "undo-alt", lib = "font-awesome"))
-    )
+    actionButton(ns("reset"), "Reset", width = "100%",
+                 icon = icon(name = "undo-alt", lib = "font-awesome")),
+    width = 2)
 }
     
 #' sidebar Server Functions
 #'
 #' @noRd 
 mod_sidebar_server <- function(id){
-  moduleServer( id, function(input, output, session){
+  moduleServer( id, function(input, output, session, reset){
     ns <- session$ns
- 
+    observeEvent(input$reset, {
+      updateNumericInput(session, inputId = "N", value = 1000)
+      updateSliderInput(session, inputId = "probH", value = 0.4)
+      updateSliderInput(session, inputId = "meanH", value = 0.4)
+    })
+    # observeEvent(input$simulate, {
+    #   list(
+    #     "n" = reactive(input$N),
+    #     "probH" = reactive(input$probH),
+    #     "meanH" = reactive(input$meanH)
+    #   )
+    # })
   })
 }
     
