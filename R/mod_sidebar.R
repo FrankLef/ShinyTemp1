@@ -40,20 +40,19 @@ mod_sidebar_ui <- function(id){
 #'
 #' @noRd 
 mod_sidebar_server <- function(id){
-  moduleServer( id, function(input, output, session, reset){
+  moduleServer( id, function(input, output, session){
     ns <- session$ns
     observeEvent(input$reset, {
       updateNumericInput(session, inputId = "N", value = 1000)
       updateSliderInput(session, inputId = "probH", value = 0.4)
       updateSliderInput(session, inputId = "meanH", value = 0.4)
     })
-    # observeEvent(input$simulate, {
-    #   list(
-    #     "n" = reactive(input$N),
-    #     "probH" = reactive(input$probH),
-    #     "meanH" = reactive(input$meanH)
-    #   )
-    # })
+    eventReactive(input$simulate, {
+      list(
+        "N" = input$N,
+        "probH" = input$probH,
+        "meanH" = input$meanH)
+    })
   })
 }
     

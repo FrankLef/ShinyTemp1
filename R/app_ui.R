@@ -27,7 +27,11 @@ app_ui <- function(request) {
                       column(6, mod_dag_ui("dag_ui_1")),
                       column(6, mod_tbl_ui("tbl_ui_1"))
                       )
-                    )
+                    ),
+           tabPanel("debug",
+                    fluidPage(
+                      column(6, mod_debug_ui("debug_ui_1"))
+                    ))
            ),
          width = 10
        )

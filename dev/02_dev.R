@@ -19,7 +19,7 @@ usethis::use_package( "reactable" , type = "imports")
 
 ## Add modules ----
 ## Create a module infrastructure in R/
-golem::add_module( name = "dtbl" ) # Name of the module
+golem::add_module( name = "debug" ) # Name of the module
 golem::add_module( name = "lm" ) # Name of the module
 
 ## Add helper functions ----
