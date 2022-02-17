@@ -49,6 +49,7 @@ mod_sidebar_server <- function(id){
     })
     eventReactive(input$simulate, {
       list(
+        "btn" = reactive(input$simulate),
         "N" = input$N,
         "probH" = input$probH,
         "meanH" = input$meanH)

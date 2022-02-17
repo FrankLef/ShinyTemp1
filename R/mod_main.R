@@ -9,10 +9,9 @@
 #' @importFrom shiny NS tagList 
 mod_main_ui <- function(id){
   ns <- NS(id)
-  tagList(
-    verbatimTextOutput(ns("specs"))
- 
-  )
+  fluidPage(column(6, verbatimTextOutput(ns("specs"))),
+            column(6, reactable::reactableOutput(ns("norm")))
+            )
 }
     
 #' main Server Functions
@@ -25,11 +24,11 @@ mod_main_server <- function(id, sim_specs){
     output$specs <- renderPrint({
       print(sim_specs())
       })
-    eventReactive(input$simulate, {
-      binom <- sim_binom(n = sim_specs()$N, probH = sim_specs()$probH, seed = 222)
-      norm <- sim_norm(n = sim_specs()$N, probH = sim_specs()$meanH, seed = 222)
-      list("binom" = binom, "norm" = norm)
-    })
+    output$norm <- reactable::renderReactable({
+      # df <- sim_norm()
+      norm <- sim_norm(n = sim_specs()$N, meanH = sim_specs()$meanH, seed = 222)
+      create_itbl(norm)
+      })
   })
 }
     

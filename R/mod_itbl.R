@@ -17,11 +17,13 @@ mod_itbl_ui <- function(id){
 #' itbl Server Functions
 #'
 #' @noRd 
-mod_itbl_server <- function(id){
+mod_itbl_server <- function(id, sim_specs){
+  stopifnot(is.reactive(sim_specs))
   moduleServer( id, function(input, output, session){
     ns <- session$ns
     output$itbl <- reactable::renderReactable({
-      df <- sim_norm()
+      # df <- sim_norm()
+      df <- sim_norm(n = sim_specs()$N, meanH = sim_specs()$meanH, seed = 222)
       create_itbl(df)
     })
   })

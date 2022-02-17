@@ -29,9 +29,7 @@ app_ui <- function(request) {
                       )
                     ),
            tabPanel("main",
-                    fluidPage(
-                      column(6, mod_main_ui("main_ui_1"))
-                    ))
+                    mod_main_ui("main_ui_1"))
            ),
          width = 10
        )

@@ -17,11 +17,13 @@ mod_tbl_ui <- function(id){
 #' tbl Server Functions
 #'
 #' @noRd 
-mod_tbl_server <- function(id){
+mod_tbl_server <- function(id, sim_specs){
+  stopifnot(is.reactive(sim_specs))
   moduleServer( id, function(input, output, session){
     ns <- session$ns
     output$tbl <- gt::render_gt({
-      df <- sim_binom()
+      # df <- sim_binom()
+      df <- sim_binom(n = sim_specs()$N, probH = sim_specs()$probH, seed = 222)
       create_tbl(df)
     })
   })
