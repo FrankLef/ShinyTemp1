@@ -2,8 +2,8 @@ Package: ShinyTemp1
 Title: Shiny Template 1
 Version: 0.0.0.9000
 Authors@R: person('François Lefebvre', 'Lefebvre', email = 'flefebvre01@hotmail.com', role = c('cre', 'aut'))
-Description: Shiny template with simulation, tables and plot. Primarily
-  as a demonstration on how to interconnect modules and sub modules.
+Description: Shiny template with simulated data, tables and plots. also
+  examplifies how to interconnect modules and sub modules.
 License: MIT + file LICENSE
 Imports: 
     config (>= 0.3.1),

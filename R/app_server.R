@@ -12,5 +12,5 @@ app_server <- function( input, output, session ) {
   mod_tbl_server("tbl_ui_1")
   mod_plot_server("plot_ui_1")
   mod_dtbl_server("dtbl_ui_1")
-  mod_debug_server("debug_ui_1", sim$specs)
+  mod_main_server("main_ui_1", sim$specs)
 }

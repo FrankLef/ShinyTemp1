@@ -1,4 +1,4 @@
-#' debug UI Function
+#' main UI Function
 #'
 #' @description A shiny Module.
 #'
@@ -7,7 +7,7 @@
 #' @noRd 
 #'
 #' @importFrom shiny NS tagList 
-mod_debug_ui <- function(id){
+mod_main_ui <- function(id){
   ns <- NS(id)
   tagList(
     verbatimTextOutput(ns("specs"))
@@ -15,10 +15,10 @@ mod_debug_ui <- function(id){
   )
 }
     
-#' debug Server Functions
+#' main Server Functions
 #'
 #' @noRd 
-mod_debug_server <- function(id, sim_specs){
+mod_main_server <- function(id, sim_specs){
   stopifnot(is.reactive(sim_specs))
   moduleServer( id, function(input, output, session){
     ns <- session$ns
@@ -26,10 +26,13 @@ mod_debug_server <- function(id, sim_specs){
       print(sim_specs())
       })
   })
+  # eventReactive({
+  #   
+  # })
 }
     
 ## To be copied in the UI
-# mod_debug_ui("debug_ui_1")
+# mod_main_ui("main_ui_1")
     
 ## To be copied in the server
-# mod_debug_server("debug_ui_1")
+# mod_main_server("main_ui_1")
