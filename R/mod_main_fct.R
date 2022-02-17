@@ -41,7 +41,7 @@ sim_binom <- function(n = 1000, probH = 0.4, seed = NULL) {
 #' @importFrom stats rnorm sd coef lm
 #' @importFrom rlang .data
 #'
-#' @returnDataframe with lm coefficients normal model.
+#' @return Dataframe with lm coefficients.
 #'
 #' @examples
 #' sim_norm()

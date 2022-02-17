@@ -58,12 +58,6 @@
       "Repository": "CRAN",
       "Hash": "ddfa72a87fdf4c80466a20818be91d00"
     },
-    "ShinyTemp1": {
-      "Package": "ShinyTemp1",
-      "Version": "0.0.0.9000",
-      "Source": "unknown",
-      "Hash": "6ec4a2dd50ffc906a7e0c4d9c94caaa1"
-    },
     "V8": {
       "Package": "V8",
       "Version": "4.1.0",
@@ -721,6 +715,20 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "8f25ebe2ec38b1f2aef3b0d2ef76f6c4"
+    },
+    "reactR": {
+      "Package": "reactR",
+      "Version": "0.4.4",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "75389c8091eb14ee21c6bc87a88b3809"
+    },
+    "reactable": {
+      "Package": "reactable",
+      "Version": "0.2.3",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "ac1afe50d1c77470a72971a07fd146b1"
     },
     "rematch": {
       "Package": "rematch",

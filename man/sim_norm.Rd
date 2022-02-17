@@ -15,6 +15,9 @@ sim_norm(n = 1000, meanH = 0.4, sdH = 0.25 * meanH, seed = NULL)
 
 \item{seed}{Seed. Default is 222}
 }
+\value{
+Dataframe with lm coefficients.
+}
 \description{
 Simulate data having spurious associations using \code{rnorm}
 }
