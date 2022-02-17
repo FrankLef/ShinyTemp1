@@ -22,7 +22,7 @@ mod_dtbl_server <- function(id){
     ns <- session$ns
     output$dtbl <- renderDataTable({
       df <- sim_norm()
-      mod_tbl_fnc(df)
+      create_dtbl(df)
     })
   })
 }

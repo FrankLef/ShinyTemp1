@@ -6,7 +6,7 @@
 #'
 #' @return Formatted dataframe.
 #' @export
-mod_tbl_fnc <- function(data) {
+create_dtbl <- function(data) {
   # NOTE: cannot use cross(where) inside package
   # https://github.com/r-lib/tidyselect/issues/201#issuecomment-650547846
   # must use mutate_if

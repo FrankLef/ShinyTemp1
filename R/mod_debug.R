@@ -22,7 +22,6 @@ mod_debug_server <- function(id, sim_specs){
   stopifnot(is.reactive(sim_specs))
   moduleServer( id, function(input, output, session){
     ns <- session$ns
-    # output$specs <- renderPrint({sim_specs})
     output$specs <- renderPrint({
       print(sim_specs())
       })
