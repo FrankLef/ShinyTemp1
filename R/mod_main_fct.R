@@ -7,12 +7,12 @@
 #' @importFrom stats rbinom
 #' @importFrom rlang .data
 #'
-#' @return Data.frame with probabilities
+#' @return Dataframe, summary of binomial ditribution probabilties 
 #'
 #' @examples
 #' sim_binom()
 #' @export
-sim_binom <- function(n = 1000, probH = 0.4, seed = 222) {
+sim_binom <- function(n = 1000, probH = 0.4, seed = NULL) {
   stopifnot(probH > 0, probH < 1)
   set.seed(seed)
   # generate the confounder first
@@ -41,13 +41,12 @@ sim_binom <- function(n = 1000, probH = 0.4, seed = 222) {
 #' @importFrom stats rnorm sd coef lm
 #' @importFrom rlang .data
 #'
-#' @return List with coefficients details of model \code{Y ~ `T`} and
-#' model \code{Y ~ `T` + H}
+#' @returnDataframe with lm coefficients normal model.
 #'
 #' @examples
 #' sim_norm()
 #' @export
-sim_norm <- function(n = 1000, meanH = 0.4, sdH = 0.25 * meanH, seed = 222) {
+sim_norm <- function(n = 1000, meanH = 0.4, sdH = 0.25 * meanH, seed = NULL) {
   stopifnot(meanH > 0, meanH < 1, sdH > 0)
   set.seed(seed)
   # generate the confounder first

@@ -19,7 +19,7 @@ app_ui <- function(request) {
            tabPanel("Normal",
                     fluidPage(
                       column(6, mod_plot_ui("plot_ui_1")),
-                      column(6, mod_dtbl_ui("dtbl_ui_1"))
+                      column(6, mod_itbl_ui("itbl_ui_1"))
                       )
                     ),
            tabPanel("Binomial",

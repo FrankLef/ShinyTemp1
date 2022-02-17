@@ -25,10 +25,12 @@ mod_main_server <- function(id, sim_specs){
     output$specs <- renderPrint({
       print(sim_specs())
       })
+    eventReactive(input$simulate, {
+      binom <- sim_binom(n = sim_specs()$N, probH = sim_specs()$probH, seed = 222)
+      norm <- sim_norm(n = sim_specs()$N, probH = sim_specs()$meanH, seed = 222)
+      list("binom" = binom, "norm" = norm)
+    })
   })
-  # eventReactive({
-  #   
-  # })
 }
     
 ## To be copied in the UI

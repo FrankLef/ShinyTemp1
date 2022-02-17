@@ -11,6 +11,7 @@ app_server <- function( input, output, session ) {
   mod_dag_server("dag_ui_1")
   mod_tbl_server("tbl_ui_1")
   mod_plot_server("plot_ui_1")
-  mod_dtbl_server("dtbl_ui_1")
-  mod_main_server("main_ui_1", sim$specs)
+  mod_itbl_server("itbl_ui_1")
+  lst <- mod_main_server("main_ui_1", sim$specs)
+  append(sim, lst)
 }

@@ -1,4 +1,4 @@
-#' dtbl UI Function
+#' itbl UI Function
 #'
 #' @description A shiny Module.
 #'
@@ -7,20 +7,20 @@
 #' @noRd 
 #'
 #' @importFrom shiny NS tagList 
-mod_dtbl_ui <- function(id){
+mod_itbl_ui <- function(id){
   ns <- NS(id)
   tagList(
-    reactable::reactableOutput(ns("dtbl"))
+    reactable::reactableOutput(ns("itbl"))
   )
 }
     
-#' dtbl Server Functions
+#' itbl Server Functions
 #'
 #' @noRd 
-mod_dtbl_server <- function(id){
+mod_itbl_server <- function(id){
   moduleServer( id, function(input, output, session){
     ns <- session$ns
-    output$dtbl <- reactable::renderReactable({
+    output$itbl <- reactable::renderReactable({
       df <- sim_norm()
       create_itbl(df)
     })
