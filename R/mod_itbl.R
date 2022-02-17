@@ -10,7 +10,6 @@
 mod_dtbl_ui <- function(id){
   ns <- NS(id)
   tagList(
-    # dataTableOutput(ns("dtbl"))
     reactable::reactableOutput(ns("dtbl"))
   )
 }
@@ -23,7 +22,7 @@ mod_dtbl_server <- function(id){
     ns <- session$ns
     output$dtbl <- reactable::renderReactable({
       df <- sim_norm()
-      create_dtbl(df)
+      create_itbl(df)
     })
   })
 }
