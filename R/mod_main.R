@@ -24,11 +24,12 @@ mod_main_server <- function(id, sim_specs){
     output$specs <- renderPrint({
       print(sim_specs())
       })
+    norm <- reactive(sim_norm(n = sim_specs()$N, meanH = sim_specs()$meanH, seed = 222))
     output$norm <- reactable::renderReactable({
-      # df <- sim_norm()
-      norm <- sim_norm(n = sim_specs()$N, meanH = sim_specs()$meanH, seed = 222)
-      create_itbl(norm)
+      create_itbl(norm())
       })
+    # return the data as a reactive
+    norm
   })
 }
     

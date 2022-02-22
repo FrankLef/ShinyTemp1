@@ -14,7 +14,7 @@ sim_binom(n = 1000, probH = 0.4, seed = NULL)
 \item{seed}{Seed. Default is 222}
 }
 \value{
-Dataframe, summary of binomial ditribution probabilties
+Dataframe, summary of binomial distribution probabilities
 }
 \description{
 Simulate data having spurious associations using \code{rbinom}

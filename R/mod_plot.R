@@ -17,13 +17,14 @@ mod_plot_ui <- function(id){
 #' plot Server Functions
 #'
 #' @noRd 
-mod_plot_server <- function(id, sim_specs){
+mod_plot_server <- function(id, sim_specs, sim_norm){
   stopifnot(is.reactive(sim_specs))
+  stopifnot(is.reactive(sim_norm))
   moduleServer( id, function(input, output, session){
     ns <- session$ns
     output$ply <- renderPlotly({
-      # df <- sim_norm()
-      df <- sim_norm(n = sim_specs()$N, meanH = sim_specs()$probH, seed = 222)
+      # df <- sim_norm(n = sim_specs()$N, meanH = sim_specs()$probH, seed = 222)
+      df <- sim_norm()
       ply_norm(df)
     })
   })
