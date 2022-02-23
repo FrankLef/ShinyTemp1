@@ -2,7 +2,7 @@
 
 Shiny template 1
 
-This is a test 2022-02-23
+This is a test 2022-02-23 BINOM
 
 ## Description
 
