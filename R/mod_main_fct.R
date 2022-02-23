@@ -7,7 +7,7 @@
 #' @importFrom stats rbinom
 #' @importFrom rlang .data
 #'
-#' @return Dataframe, summary of binomial distribution probabilities 
+#' @return Dataframe, summary of binomial istribution probabilities 
 #'
 #' @examples
 #' sim_binom()
